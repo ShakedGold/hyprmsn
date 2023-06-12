@@ -19,7 +19,11 @@ trun() {
 img() {
     window=$1
     windows_images_dir=$HOME/.config/hyprmsn/windows
-    echo "$windows_images_dir/$(ls $windows_images_dir | grep -F $window)"
+    window_img="$windows_images_dir/$(ls $windows_images_dir | grep -F $window)"
+    if [[ $window_img == "$windows_images_dir/" ]]; then
+        window_img="$windows_images_dir/default.png"
+    fi
+    echo "$window_img"
 }
 
 word_per_line=3
