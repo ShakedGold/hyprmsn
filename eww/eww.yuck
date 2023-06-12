@@ -9,7 +9,7 @@
   )
 )
 
-(defwindow example
+(defwindow hyprmsn
   :monitor 0
   :geometry (geometry
     :x "0%"
