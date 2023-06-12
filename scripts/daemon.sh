@@ -15,7 +15,6 @@ while true; do
     
     window_str=$(echo $window | sed -e 's/[]\/$*.^[]/\\&/g') #| sed 's/\[\([^]]*\)\]/\\[\1\\]/g') #add \ to []
     window_no_slash=$(echo $window | sed 's|/|⁄|g')
-    echo $window_no_slash
     
     at_size=$(hyprctl clients | sed -n "/$window_str/,/^\$/p" | grep -Ew 'at|size' | tr -d '[a-z]|:|\t| ')
     at=$(echo $at_size | tr ' ' '\n' | head -1 | tail -1)
