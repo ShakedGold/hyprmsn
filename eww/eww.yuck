@@ -1,1 +1,23 @@
-/home/shaked/.config/eww/eww.yuck
+(defpoll windows :interval "1s"
+              :initial "initial-value"  ; optional, defaults to poll at startup
+              :run-while time-visible   ; optional, defaults to 'true'
+  `scripts/windows.sh`)
+
+(defwidget windows_widget []
+  (box
+    (literal :content windows)
+  )
+)
+
+(defwindow example
+  :monitor 0
+  :geometry (geometry
+    :x "0%"
+    :y "0%"
+    :width "50%"
+    :height "30%"
+  :anchor "center center")
+  :stacking "fg"
+  :windowtype "dock"
+  (windows_widget)
+)

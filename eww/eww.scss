@@ -1,1 +1,14 @@
-/home/shaked/.config/eww/eww.scss
+*{
+    all: unset; //Unsets everything so you can style everything from scratch
+}
+.window-button {
+    background-color: rgb(44, 44, 44);
+}
+
+.window-button:hover {
+    background-color: rgb(27, 27, 27);
+}
+
+.window-button:active {
+    background-color: rgb(17, 17, 17);
+}
