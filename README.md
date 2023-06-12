@@ -4,8 +4,7 @@ A "Mission Control" like in macos for Hyprland
 # Explanation
 ### ```daemon.sh```
 this file is supposed to be running at all times and its purpose is to screenshot the focused window everytime you switch to a different window
-video example:
-
+[Video Example](https://imgur.com/a/ExP51Ms)
 
 ### ```clients.sh```
 This is a temporary file to use rofi for the UI but my plan is to switch this to eww to be able to display the images and control the appearance.
