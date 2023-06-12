@@ -15,9 +15,8 @@ hyprctl dispatch focuswindow address:0x$window_id > /dev/null
 to switch to the window
 
 # Mission
-My goal right now is to use eww to display the window switcher, I need to create a widget and programmatically use that widget for each window that is available (to get the windows I use ```htyprctl clients```).
-Also I suck at scss/css in general so I need a bit of help!
-If you would like to help me that would be awesome, the most important thing right now is dynamically generating the eww widget with the corresponding number of windows open.
+- [x] Integrate eww to dynamically create widgets
+- [ ] make eww pretty
 
 # Dependencies
 * Hyprland
@@ -25,7 +24,9 @@ If you would like to help me that would be awesome, the most important thing rig
 
 # Getting Started
 To test the program you will need to do the following:
-1. create a directory in "~/.config/" called "hyprmsn"
-2. move the script folder there
-3. run ./daemon.sh (explenation above)
-4. (optional) run ./clients.sh
+1. create a directory in `~/.config/` called `hyprmsn`
+2. move the scripts folder to `~/.config/hyprmsn`
+3. move the contents of the eww folder to `~/.config/eww/`
+4. run `./daemon.sh` (explenation above)
+5. run `eww open hyprmsn`
+6. (optional) run `./clients.sh` (runs rofi)
