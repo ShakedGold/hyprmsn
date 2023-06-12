@@ -24,9 +24,6 @@ to switch to the window
 
 # Getting Started
 To test the program you will need to do the following:
-1. create a directory in `~/.config/` called `hyprmsn`
-2. move the scripts folder to `~/.config/hyprmsn`
-3. move the contents of the eww folder to `~/.config/eww/`
-4. run `./daemon.sh` (explenation above)
-5. run `eww open hyprmsn`
-6. (optional) run `./clients.sh` (runs rofi)
+1. `git clone https://github.com/ShakedGold/hyprmsn`
+2. make sure `installer.sh` is executable (`chmod +x installer.sh`)
+3. run `installer.sh`
