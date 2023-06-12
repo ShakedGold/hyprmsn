@@ -8,7 +8,8 @@ rm -rf $missioncontroldir/windows/* 2> /dev/null
 while true; do
     new_window=$(hyprctl activewindow -j | jq --raw-output .title)
     new_window=$(echo $new_window | sed 's/\[\([^]]*\)\]/\\[\1\\]/g') #add \ to []
-    new_window=$(echo $new_window | sed 's/'\''\.\*\\^//g') #add \ to special characters
+    new_window=$(echo $new_window | sed -E 's/(['\''\.\*\\^])/\\\1/g') #add \ to special characters
+    new_window=$(echo $new_window | sed -E 's/([\{\}])/\\\1/g') #add \ to { and }
 
     if [[ "$window" == "$new_window" ]]; then
      continue
