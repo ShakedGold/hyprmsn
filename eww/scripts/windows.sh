@@ -19,7 +19,8 @@ trun() {
 img() {
     window=$1
     windows_images_dir=$HOME/.config/hyprmsn/windows
-    window_img="$windows_images_dir/$(ls $windows_images_dir | grep -F $window)"
+    window_no_slash=$(echo $window | sed 's|/|⁄|g')
+    window_img="$windows_images_dir/$(ls $windows_images_dir | grep -F $window_no_slash | tail -1)"
     if [[ $window_img == "$windows_images_dir/" ]]; then
         window_img="$windows_images_dir/default.png"
     fi
@@ -34,6 +35,7 @@ windows=$(hyprctl clients | rg 'Window ([A-Fa-f0-9]+)' | sed -E 's/.*\-> (.*):/\
 for window in $windows; do
     window_str=$(trun $window)
     window_img=$(img $window)
+    #echo $window_img
     eww="(box :orientation \"v\" :class \"window-box\" (image :path \"$window_img\" :image-width 192 :image-height 108) (button :onclick \"scripts/move_to_window.sh \'$window\'\" :class \"window-button\" (box :orientation \"v\" "
     for string in $(echo -e $window_str); do
         eww="$eww $(echo -e "(label :text \"$string\")")"
