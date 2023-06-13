@@ -27,3 +27,5 @@ To test the program you will need to do the following:
 1. `git clone https://github.com/ShakedGold/hyprmsn`
 2. make sure `installer.sh` is executable (`chmod +x installer.sh`)
 3. run `installer.sh`
+4. run daemon.sh in `~/.config/hyrpmsn/scripts`
+5. run `eww open hyprmsn`
