@@ -14,9 +14,10 @@ hyprctl dispatch focuswindow address:0x$window_id > /dev/null
 ```
 to switch to the window
 
-# Mission
+# Todo
 - [x] Integrate eww to dynamically create widgets
 - [ ] make eww pretty
+- [ ] remove unsused screenshots to save space
 
 # Dependencies
 * Hyprland
