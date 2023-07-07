@@ -20,7 +20,8 @@ to switch to the window
 
 # Dependencies
 * Hyprland
-* ```grim```
+* grim
+* eww
 
 # Getting Started
 To test the program you will need to do the following:
