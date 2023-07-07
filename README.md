@@ -28,4 +28,4 @@ To test the program you will need to do the following:
 2. make sure `installer.sh` is executable (`chmod +x installer.sh`)
 3. run `installer.sh`
 4. run daemon.sh in `~/.config/hyrpmsn/scripts`
-5. run `eww open hyprmsn`
+5. run `eww --config $HOME/.config/eww/hyprmsn open hyprmsn`
