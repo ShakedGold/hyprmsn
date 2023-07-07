@@ -24,6 +24,10 @@ to switch to the window
 * grim
 * eww
 
+# New Features
+* you can now choose to use icons instead on the daemon as images! (so now you dont have to run the daemon at startup)
+  just go into config.ini and set use_icons to true, it works best with the Papirus icon theme
+
 # Getting Started
 To test the program you will need to do the following:
 1. `git clone https://github.com/ShakedGold/hyprmsn`
