@@ -1,5 +1,5 @@
 #! /bin/bash
-missioncontroldir=$HOME/.config/hyprmsn
+hyprmsn=$HOME/.config/hyprmsn
 
 OLDIFS="$IFS"
 IFS=$'\n' # bash specific
@@ -8,8 +8,8 @@ do
     special_line=$line
     special_line=$(echo $special_line | sed 's/\[\([^]]*\)\]/\\[\1\\]/g') #add \ to []
     special_line=$(echo $special_line | sed 's/'\''\.\*\\^//g') #add \ to special characters
-    icon=$(ls "$missioncontroldir/windows" | grep -F $special_line)
-    echo -en "$line\x00icon\x1f$missioncontroldir/windows/$icon\n"
+    icon=$(ls "$hyprmsn/windows" | grep -F $special_line)
+    echo -en "$line\x00icon\x1f$hyprmsn/windows/$icon\n"
 done | rofi -dmenu )
 IFS="$OLDIFS"
 

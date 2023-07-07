@@ -1,9 +1,9 @@
 #! /bin/bash
 
-missioncontroldir=$HOME/.config/hyprmsn
-mkdir $missioncontroldir/windows 2> /dev/null
+hyprmsn=$HOME/.config/hyprmsn
+mkdir $hyprmsn/windows 2> /dev/null
 window=$(hyprctl activewindow -j | jq --raw-output .title)
-rm -rf $missioncontroldir/windows/*.jpeg 2> /dev/null
+rm -rf $hyprmsn/windows/*.jpeg 2> /dev/null
 
 while true; do
     new_window=$(hyprctl activewindow -j | jq --raw-output .title)
@@ -20,5 +20,5 @@ while true; do
     at=$(echo $at_size | tr ' ' '\n' | head -1 | tail -1)
     size=$(echo $at_size | tr ' ' '\n' | head -2 | tail -1 | tr ',' 'x')
     sleep 0.4
-    grim -g "$at $size" -t jpeg -q 50 "$missioncontroldir/windows/$window_no_slash.jpeg"
+    grim -g "$at $size" -t jpeg -q 50 "$hyprmsn/windows/$window_no_slash.jpeg"
 done
