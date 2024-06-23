@@ -23,6 +23,8 @@ to switch to the window
 * Hyprland
 * grim
 * eww
+* jq
+* rg
 
 # New Features
 * you can now choose to use icons instead on the daemon as images! (so now you dont have to run the daemon at startup)
