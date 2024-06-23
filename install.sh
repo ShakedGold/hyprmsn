@@ -15,6 +15,20 @@ then
     exit
 fi
 
+if ! command -v jq &> /dev/null
+then
+    echo "jq could not be found"
+    echo "install jq to continue"
+    exit
+fi
+
+if ! command -v rg &> /dev/null
+then
+    echo "rg could not be found"
+    echo "install rg to continue"
+    exit
+fi
+
 
 mkdir ~/.config/eww 2> /dev/null
 echo "created eww dir if it didn't existed"

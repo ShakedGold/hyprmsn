@@ -7,6 +7,7 @@ trun() {
         if [[ $count == $word_per_line ]]; then
             str="$str$word\n"
             count=0
+            line_count=$(($line_count + 1))
         else
             str="$str$word "
             count=$(($count + 1))
@@ -28,39 +29,34 @@ img() {
 }
 
 word_per_line=3
-echo "(box"
+total_lines=2
 OLD_IFS="$IFS"
 IFS=$'\n'
 windows=$(hyprctl clients | rg 'Window ([A-Fa-f0-9]+)' | sed -E 's/.*\-> (.*):/\1/g')
 classes=$(hyprctl clients | rg 'class: ' | sed "s/.*class: //g")
+initial_names=$(hyprctl clients | rg 'initialTitle: ' | cut -d ' ' -f2-)
 
 source $HOME/.config/hyprmsn/scripts/load_config.sh
 
+result="["
+
 i=1
 for window in $windows; do
-    window_class=$(echo $classes | tr ' ' '\n' | head -$i | tail -1)
-    window_str=$(trun $window)
+    window_class=$(echo $initial_names | tr ' ' '\n' | head -$i | tail -1)
     window_img=$(img $window)
 
     if [ $use_icons == true ]; then
-        find_icon=$(find /usr/share/icons/$icon_pack -iname "$window_class*" | head -4 | tail -1)
-        if [[ $find_icon == "/usr/share/icons/$icon_pack" ]]; then
-            window_img=$(img $window)
-        fi
-        window_img=$find_icon
-    else
-        window_img=$(img $window)
+        window_icon=$(find /usr/share/icons/$icon_pack | grep -E -i "$window_class\." | head -1 | tail -1)
     fi
 
-    #echo $window_img
-    eww="(box :orientation \"v\" :class \"window-box\" (image :path \"$window_img\" :image-width 192 :image-height 108) (button :onclick \"$HOME/.config/eww/hyprmsn/scripts/move_to_window.sh \'$window\'\" :class \"window-button\" (box :orientation \"v\" "
-    for string in $(echo -e $window_str); do
-        eww="$eww $(echo -e "(label :text \"$string\")")"
-    done
-    eww="$eww)))"
-    echo $eww
+    object="{\"name\": \"$window\", \"icon\": \"$window_icon\", \"image\": \"$window_img\", \"onclick\": \"../scripts/move_to_window.sh '$window'\"}"
+
+    result=$(echo "$result$object,")
 
     i=$(( $i + 1 ))
 done
 IFS=$OLD_IFS
-echo ")"
+
+result=$(echo "$result" | sed 's/,$/]/g')
+
+echo $result

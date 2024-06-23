@@ -1,0 +1,23 @@
+(include "./tab.yuck")
+
+(defpoll windows-file :initial "[\"hi\"]" :interval "1s"
+  `../scripts/get_windows.sh`)
+
+(defwindow hyprmsn [monitor]
+    :monitor monitor
+    :geometry (geometry
+        :x "0%"
+        :y "0%"
+        :width "50%"
+        :width "30%"
+        :anchor "center center"
+    )
+    :stacking "fg"
+    :windowtype "dock"
+    :class "container"
+    (box :spacing 10
+        (for window in windows-file
+           (tab :title {window.name} :img {window.image} :icon {window.icon} :onclick {window.onclick})
+        )
+    )
+)

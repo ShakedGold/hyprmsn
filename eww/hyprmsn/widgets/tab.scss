@@ -1,0 +1,26 @@
+* {
+    all: unset; //Unsets everything so you can style everything from scratch
+}
+
+.tab {
+    padding: 10px;
+    border: transparent solid 2px;
+    background: rgba(0, 0, 0, 1);
+    border-radius: 5px;
+}
+
+.tab:hover {
+    border: white solid 2px;
+}
+
+.tab-close {
+    background-color: rgba($color: #fff, $alpha: 0.2);
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 5px;
+}
+
+.tab-close:hover {
+    background-color: red;
+    color: black;
+}

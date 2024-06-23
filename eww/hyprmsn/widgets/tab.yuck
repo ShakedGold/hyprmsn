@@ -1,0 +1,13 @@
+(defwidget tab [title img ?icon onclick]
+    (button :class "tab" :onclick onclick
+        (box :class "tab-box" :orientation "v" :spacing -70
+            (box :class "tab-labels" :orientation "h" :space-evenly false :valign "start"
+                (box :class "tab-label-container" :space-evenly false :spacing 5
+                    (image :class "tab-label-icon" :path icon)
+                    (label :class "tab-label-title" :text title :unindent true :limit-width 20)
+                )
+            )
+            (image :class "tab-image" :path img :image-width 192 :image-height 108)  
+        )
+    )
+)
