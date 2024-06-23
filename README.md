@@ -16,7 +16,7 @@ to switch to the window
 
 # Todo
 - [x] Integrate eww to dynamically create widgets
-- [ ] make eww pretty
+- [X] make eww pretty
 - [ ] remove unsused screenshots to save space
 
 # Dependencies
